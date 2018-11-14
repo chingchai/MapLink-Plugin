@@ -183,10 +183,10 @@ class ml_menu:
 		
 				
 		#Google Terrain
-		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_googlemaps.png")
-		self.ml_googleterrain_action = QAction(icon, u'Google Terrain', self.iface.mainWindow())
-		self.ml_googleterrain_action.triggered.connect(self.googleterrain_call)		
-		self.google_menu.addAction(self.ml_googleterrain_action)
+		#icon = QIcon(os.path.dirname(__file__) + "/icons/ml_googlemaps.png")
+		#self.ml_googleterrain_action = QAction(icon, u'Google Terrain', self.iface.mainWindow())
+		#self.ml_googleterrain_action.triggered.connect(self.googleterrain_call)		
+		#self.google_menu.addAction(self.ml_googleterrain_action)
 
 		#Google Terrain Hybrid
 		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_googlemaps.png")
