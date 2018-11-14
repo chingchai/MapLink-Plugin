@@ -8,7 +8,7 @@
         begin                : 2018-11-11
         License              : MIT License
         email                : ps.gistnu@gmail.com
-		github				 : 
+		github				 : https://github.com/chingchai/MapLink-Plugin
  ***************************************************************************/
 """
 
