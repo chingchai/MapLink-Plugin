@@ -55,7 +55,7 @@ class ml_menu:
 		self.ml_add_submenu(self.stamen_menu)
 		self.stamen_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/ml_stamen.png"))
 
-		self.osm_menu = QMenu(u'Openstreetmap')		
+		self.osm_menu = QMenu(u'OpenStreetMap')		
 		self.ml_add_submenu(self.osm_menu)
 		self.osm_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/ml_osm.png"))
 
