@@ -455,7 +455,7 @@ class ml_menu:
 	
 
 	def googleterrain_call(self):
-		service_url ="mt1.google.com/vt/lyrs=t&x={x}&y={y}&z={z}" 
+		service_url ="http://mt0.google.com/vt/lyrs=t&hl=en&x={x}&y={y}&z={z}" 
 		name = "Google Terrain"
 		ml_basemap(self.iface,service_url, name)
 
