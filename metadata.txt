@@ -1,16 +1,17 @@
 [general]
 name=MapLink
-qgisMinimumVersion=3.0
-qgisMaximumVersion=3.9
-description= MapLink
-about=
+qgisMinimumVersion=3.00
+qgisMaximumVersion=3.99
+description= MapLink Plugin XYZ Tiles Base Map: Google Map, ESRI Map, OSM, Stamen, and more
+about= MapLink Plugin XYZ Tiles Base Map for GISTNU Lab Training 
 category=Basemap
 version=1.0
 icon=icon.png
-author=BoonStation
+author=Boon Station
 email=ps.gistnu@gmail.com
-homepage=
-tracker = 
-repository=
+homepage=https://github.com/chingchai/MapLink-Plugin/wiki
+tracker=https://github.com/chingchai/MapLink-Plugin/issues
+repository=https://github.com/chingchai/MapLink-Plugin
+tags=Base Map, Tiles layer, Tiles XYZ
 experimental=True
 deprecated=False
