@@ -34,3 +34,26 @@ def ml_basemap(self, service_url, name):
 	tms_layer = qgis.utils.iface.addRasterLayer(service_uri, name, "wms")
 	if not tms_layer.isValid():
   		print("LayerService failed to load!")
+
+#--------------------------------------------------------
+#    Add Overlay WMS Service
+# --------------------------------------------------------
+
+def ml_ortho(self, service_url, name):
+	import requests
+	import qgis.utils	
+	service_uri = "contextualWMSLegend=1&crs=EPSG:3857&dpiMode=7&featureCount=10&format=image/png&layers=0&styles&url=http://"+requests.utils.quote(service_url)	
+	wms_layer = qgis.utils.iface.addRasterLayer(service_uri, name, "wms")
+	if not wms_layer.isValid():
+  		print("LayerService failed to load!")
+
+def ml_overlay(self, service_url, name):
+	import requests
+	import qgis.utils	
+	service_uri = "contextualWMSLegend=1&crs=EPSG:4326&dpiMode=7&format=image/png&layers=gistdata:province&styles=&url=http://"+requests.utils.quote(service_url)
+	gs_layer = qgis.utils.iface.addRasterLayer(service_uri, name, "wms")
+	if not gs_layer.isValid():
+  		print("LayerService failed to load!")
+
+#service_uri = "contextualWMSLegend=1&crs=EPSG:4326&dpiMode=7&format=image/png&layers=gistdata:amphoe&styles=&url=http://"+requests.utils.quote(service_url)
+#service_uri = "contextualWMSLegend=1&crs=EPSG:4326&dpiMode=7&format=image/png&layers=gistdata:tambon&styles=&url=http://"+requests.utils.quote(service_url)
