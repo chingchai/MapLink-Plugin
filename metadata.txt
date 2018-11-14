@@ -1,0 +1,16 @@
+[general]
+name=MapLink
+qgisMinimumVersion=3.0
+qgisMaximumVersion=3.9
+description= MapLink
+about=
+category=Basemap
+version=1.0
+icon=icon.png
+author=BoonStation
+email=ps.gistnu@gmail.com
+homepage=
+tracker = 
+repository=
+experimental=True
+deprecated=False
