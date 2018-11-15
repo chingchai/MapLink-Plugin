@@ -76,11 +76,24 @@ class ml_menu:
 		self.lddortho_action.triggered.connect(self.lddortho_call)		
 		self.ldd_menu.addAction(self.lddortho_action)
 
-		#GeoServer GISTNU WMS
+		#GeoServer GISTNU WMS Province
 		icon = QIcon(os.path.dirname(__file__) + "/icons/server_map.png")
 		self.prov_action = QAction(icon, u'ขอบเขตจังหวัด', self.iface.mainWindow())
 		self.prov_action.triggered.connect(self.prov_call)		
-		self.gs_menu.addAction(self.prov_action)				
+		self.gs_menu.addAction(self.prov_action)
+
+		#GeoServer GISTNU WMS Tambon
+		icon = QIcon(os.path.dirname(__file__) + "/icons/server_map.png")
+		self.tambon_action = QAction(icon, u'ขอบเขตตำบล', self.iface.mainWindow())
+		self.tambon_action.triggered.connect(self.tambon_call)		
+		self.gs_menu.addAction(self.tambon_action)	
+
+
+		#GeoServer GISTNU WMS Amphoe
+		icon = QIcon(os.path.dirname(__file__) + "/icons/server_map.png")
+		self.amp_action = QAction(icon, u'ขอบเขตอำเภอ', self.iface.mainWindow())
+		self.amp_action.triggered.connect(self.amp_call)		
+		self.gs_menu.addAction(self.amp_action)			
 
 		#Carto Antique
 		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_carto_l.jpg")
@@ -200,10 +213,10 @@ class ml_menu:
 		
 				
 		#Google Terrain
-		#icon = QIcon(os.path.dirname(__file__) + "/icons/ml_googlemaps.png")
-		#self.ml_googleterrain_action = QAction(icon, u'Google Terrain', self.iface.mainWindow())
-		#self.ml_googleterrain_action.triggered.connect(self.googleterrain_call)		
-		#self.google_menu.addAction(self.ml_googleterrain_action)
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_googlemaps.png")
+		self.ml_googleterrain_action = QAction(icon, u'Google Terrain', self.iface.mainWindow())
+		self.ml_googleterrain_action.triggered.connect(self.googleterrain_call)		
+		self.google_menu.addAction(self.ml_googleterrain_action)
 
 		#Google Terrain Hybrid
 		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_googlemaps.png")
@@ -265,6 +278,7 @@ class ml_menu:
 		self.stamenterrainbkg_action = QAction(icon, u'Stamen Terrain Background', self.iface.mainWindow())
 		self.stamenterrainbkg_action.triggered.connect(self.stamenterrainbkg_call)		
 		self.stamen_menu.addAction(self.stamenterrainbkg_action)
+
 		
 		# Stamen Watercolor
 		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_stamen.png")
@@ -472,7 +486,7 @@ class ml_menu:
 	
 
 	def googleterrain_call(self):
-		service_url ="http://mt0.google.com/vt/lyrs=t&hl=en&x={x}&y={y}&z={z}" 
+		service_url ="mt0.google.com/vt/lyrs=t&hl=en&x={x}&y={y}&z={z}" 
 		name = "Google Terrain"
 		ml_basemap(self.iface,service_url, name)
 
@@ -524,13 +538,23 @@ class ml_menu:
 		name = "LDD Ortho"
 		ml_ortho(self.iface,service_url, name)
 	
-	# GISTNU
+	# GISTNU Province
 	def prov_call(self):
 		service_url ="www3.cgistln.nu.ac.th/geoserver/wms/"
 		name = "ขอบเขตจังหวัด"
-		ml_overlay(self.iface,service_url, name)
+		ml_overlay_prov(self.iface,service_url, name)
 
+	# GISTNU Tambon
+	def tambon_call(self):
+		service_url ="www3.cgistln.nu.ac.th/geoserver/wms/"
+		name = "ขอบเขตตำบล"
+		ml_overlay_tam(self.iface,service_url, name)
 
+		# GISTNU Amphoe
+	def amp_call(self):
+		service_url ="www3.cgistln.nu.ac.th/geoserver/wms/"
+		name = "ขอบเขตอำเภอ"
+		ml_overlay_tam(self.iface,service_url, name)
 		
 		##https://mc.bbbike.org/mc/?num=2&mt0=mapnik&mt1=watercolor
 		#https://gitlab.com/GIS-projects/Belgium-XYZ-tiles/tree/b538df2c2de0d16937641742f25e4709ca94e42e
