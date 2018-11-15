@@ -21,7 +21,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from qgis.gui import QgsMessageBar
-
+from urllib.parse import quote
 
 #--------------------------------------------------------
 #    Add basemap tiles xyz
@@ -35,6 +35,15 @@ def ml_basemap(self, service_url, name):
 	if not tms_layer.isValid():
   		print("LayerService failed to load!")
 
+
+def ml_basemapapi(self, service_url, name):
+	import requests
+	import qgis.utils	
+	service_uri = "type=xyz&zmin=0&zmax=24&url=http://"+requests.utils.quote(service_url)
+	service_uri += "?APPID=282ba1192254376a27ec79893cb2b1d5"
+	api_layer = qgis.utils.iface.addRasterLayer(service_uri, name, "wms")
+	if not api_layer.isValid():
+  		print("LayerService failed to load!")
 #--------------------------------------------------------
 #    Add Overlay WMS Service
 # --------------------------------------------------------

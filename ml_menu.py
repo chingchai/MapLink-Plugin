@@ -37,44 +37,136 @@ class ml_menu:
 		self.ml_menu = QMenu(QCoreApplication.translate("maplink", "MapLink"))
 		self.iface.mainWindow().menuBar().insertMenu(self.iface.firstRightStandardMenu().menuAction(), self.ml_menu)
 		
-		# OpenData_basemap submenu
+		#########################		
+		# Menu Map
+		#####################
+
 		#icon_path = self._menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/.....png"))
 		self.google_menu = QMenu(u'Google')		
 		self.ml_add_submenu(self.google_menu)
 		self.google_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/ml_googlemaps.png"))
 
+		#Menu Carto
 		self.carto_menu = QMenu(u'Carto')		
 		self.ml_add_submenu(self.carto_menu)
 		self.carto_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/ml_carto_l.jpg"))
 
+		#Menu ESRI
 		self.esri_menu = QMenu(u'ESRI')		
 		self.ml_add_submenu(self.esri_menu)
 		self.esri_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/ml_esri.png"))
 
+		#Menu Stamen
 		self.stamen_menu = QMenu(u'Stamen')		
 		self.ml_add_submenu(self.stamen_menu)
 		self.stamen_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/ml_stamen.png"))
 
+		#Menu OpenStreetMap
 		self.osm_menu = QMenu(u'OpenStreetMap')		
 		self.ml_add_submenu(self.osm_menu)
 		self.osm_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/ml_osm.png"))
 
-		# Menu Overlay
+
+		#Menu Wikimedia 
+		self.wikimap_menu = QMenu(u'Wikimedia')	
+		self.ml_add_submenu(self.wikimap_menu)
+		self.wikimap_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/ldd.png"))
+
+
+		#OpenWeatherMap 
+		self.owm_menu = QMenu(u'OpenWeatherMap')	
+		self.ml_add_submenu(self.owm_menu)
+		self.owm_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/ldd.png"))
+
+
+		#Menu Bing Map
+		#self.bingmap_menu = QMenu(u'Bing Map')	
+		#self.ml_add_submenu(self.bingmap_menu)
+		#self.bingmap_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/ldd.png"))
+
+
+		#Menu Overlay LDD
 		self.ldd_menu = QMenu(u'LDD Ortho')	
 		self.ml_add_submenu(self.ldd_menu)
 		self.ldd_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/ldd.png"))
 		
-		# Menu GISTNU
+		#Menu GISTNU
 		self.gs_menu = QMenu(u'GISTNU WMS')	
 		self.ml_add_submenu(self.gs_menu)
 		self.gs_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/icon.png"))
-		
-		
+
+
+		#########################		
+		# Icon Map
+		#####################
+
+
+		#########################		
+		# Wikimedia Map
+		#####################
+
+		#OpenWeatherMap Temperature
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_ortho.png")
+		self.owmtem_action = QAction(icon, u'OpenWeatherMap Temperature', self.iface.mainWindow())
+		self.owmtem_action.triggered.connect(self.owmtem_call)		
+		self.owm_menu.addAction(self.owmtem_action)
+
+		#OpenWeatherMap Clouds
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_ortho.png")
+		self.owmcl_action = QAction(icon, u'OpenWeatherMap Clouds', self.iface.mainWindow())
+		self.owmcl_action.triggered.connect(self.owmcl_call)		
+		self.owm_menu.addAction(self.owmcl_action)
+
+		#OpenWeatherMap Wind Speed
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_ortho.png")
+		self.owmws_action = QAction(icon, u'OpenWeatherMap Wind Speed', self.iface.mainWindow())
+		self.owmws_action.triggered.connect(self.owmws_call)		
+		self.owm_menu.addAction(self.owmws_action)
+
+
+		#########################		
+		# Wikimedia Map
+		#####################
+
+		#Bing VirtualEarth
+		#icon = QIcon(os.path.dirname(__file__) + "/icons/ml_ortho.png")
+		#self.bingve_action = QAction(icon, u'Bing VirtualEarth', self.iface.mainWindow())
+		#self.bingve_action.triggered.connect(self.bingve_call)		
+		#self.bingmap_menu.addAction(self.bingve_action)
+
+		#########################		
+		# Wikimedia Map
+		#####################
+
+		#Wikimedia Map
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_ortho.png")
+		self.wikimap_action = QAction(icon, u'Wikimedia Map', self.iface.mainWindow())
+		self.wikimap_action.triggered.connect(self.wikimap_call)		
+		self.wikimap_menu.addAction(self.wikimap_action)
+
+		#Wikimedia Hike Bike Map
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_ortho.png")
+		self.wikihbm_action = QAction(icon, u'Wikimedia Hike Bike Map', self.iface.mainWindow())
+		self.wikihbm_action.triggered.connect(self.wikihbm_call)		
+		self.wikimap_menu.addAction(self.wikihbm_action)
+
+
+
+		#########################		
+		# LDD WMS
+		#####################
+
 		#LDD WMS
 		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_ortho.png")
 		self.lddortho_action = QAction(icon, u'LDD Ortho', self.iface.mainWindow())
 		self.lddortho_action.triggered.connect(self.lddortho_call)		
 		self.ldd_menu.addAction(self.lddortho_action)
+
+
+		#########################		
+		# GeoServer GISTNU
+		#####################
+
 
 		#GeoServer GISTNU WMS Province
 		icon = QIcon(os.path.dirname(__file__) + "/icons/server_map.png")
@@ -119,7 +211,7 @@ class ml_menu:
 		self.carto_menu.addAction(self.cartolight_action)
 
 		#########################		
-		# ESRI https://gitlab.com/GIS-projects/Belgium-XYZ-tiles/tree/b538df2c2de0d16937641742f25e4709ca94e42e
+		# ESRI 
 		#####################
 		#Esri Boundaries and Places 
 		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_esri.png")
@@ -334,7 +426,15 @@ class ml_menu:
 		else:
 			self.iface.removePluginMenu("&maplink", self.basemap_menu.menuAction())
 
-
+	#########################		
+	# Connected Tiles BaseMap
+	#####################
+	
+	
+	#########################		
+	# Carto
+	#####################
+	
 	def cartolight_call(self):
 		service_url ="a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png" 
 		name = "Carto Light"
@@ -530,12 +630,17 @@ class ml_menu:
 		ml_basemap(self.iface,service_url, name)
 
 	#########################		
-	# OverLay Services
+	# LDD Map
 	#########################
 	def lddortho_call(self):
 		service_url ="eis.ldd.go.th/ArcGIS/services/LDD_RASTER_WM_CACHE/MapServer/WMSServer" 
 		name = "LDD Ortho"
 		ml_ortho(self.iface,service_url, name)
+
+
+	#########################		
+	# GeoServer GISTNU
+	#####################
 	
 	# GISTNU Province
 	def prov_call(self):
@@ -549,9 +654,62 @@ class ml_menu:
 		name = "ขอบเขตตำบล"
 		ml_overlay_tam(self.iface,service_url, name)
 
-		# GISTNU Amphoe
+	# GISTNU Amphoe
 	def amp_call(self):
 		service_url ="www3.cgistln.nu.ac.th/geoserver/wms/"
 		name = "ขอบเขตอำเภอ"
 		ml_overlay_amp(self.iface,service_url, name)
-		
+
+
+	#########################		
+	# Wikimedia Map
+	#########################
+
+	#Wikimedia Map
+	def wikimap_call(self):
+		service_url ="maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
+		name = "Wikimedia Map"
+		ml_basemap(self.iface,service_url, name)
+
+	#Wikimedia Hike Bike Map
+	def wikihbm_call(self):
+		service_url ="tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png"
+		name = "Wikimedia Hike Bike Map"
+		ml_basemap(self.iface,service_url, name)
+
+
+	#########################		
+	# OpenWeatherMap
+	#########################
+
+	#OpenWeatherMap Temperature
+	def owmtem_call(self):
+		service_url ="tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png"
+		name = "OpenWeatherMap Temperature"
+		ml_basemapapi(self.iface,service_url, name)
+
+	#OpenWeatherMap Clouds
+	def owmcl_call(self):
+		service_url ="tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png"
+		name = "OpenWeatherMap Clouds"
+		ml_basemapapi(self.iface,service_url, name)
+
+	#OpenWeatherMap Wind Speed
+	def owmws_call(self):
+		service_url ="tile.openweathermap.org/map/wind_new/{z}/{x}/{y}.png"
+		name = "OpenWeatherMap Wind Speed"
+		ml_basemapapi(self.iface,service_url, name)
+
+
+	#########################		
+	# Bing Map
+	#####################
+
+	#Bing VirtualEarth
+	#def bingve_call(self):
+		#service_url ="ecn.t3.tiles.virtualearth.net/tiles/a{q}.jpeg?g=1"
+		#name = "Bing VirtualEarth"
+		#ml_basemap(self.iface,service_url, name)
+	
+#http://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png%3FAPPID=282ba1192254376a27ec79893cb2b1d5
+#http://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?APPID=282ba1192254376a27ec79893cb2b1d5
