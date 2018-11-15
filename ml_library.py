@@ -72,7 +72,3 @@ def ml_overlay_amp(self, service_url, name):
 	gs_layer = qgis.utils.iface.addRasterLayer(service_uri, name, "wms")
 	if not gs_layer.isValid():
   		print("LayerService failed to load!")
-
-
-#service_uri = "contextualWMSLegend=1&crs=EPSG:4326&dpiMode=7&format=image/png&layers=gistdata:amphoe&styles=&url=http://"+requests.utils.quote(service_url)
-#service_uri = "contextualWMSLegend=1&crs=EPSG:4326&dpiMode=7&format=image/png&layers=gistdata:tambon&styles=&url=http://"+requests.utils.quote(service_url)
