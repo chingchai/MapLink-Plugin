@@ -93,7 +93,7 @@ class ml_menu:
 		#Menu GISTNU
 		self.gs_menu = QMenu(u'GISTNU WMS')	
 		self.ml_add_submenu(self.gs_menu)
-		self.gs_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/icon.png"))
+		self.gs_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/ml_gs.png"))
 
 		#Menu ThunderForest Map
 		self.tfm_menu = QMenu(u'ThunderForest Map')	
@@ -893,5 +893,3 @@ class ml_menu:
 		service_url ="tiles.planet.com/basemaps/v1/planet-tiles/thailand_2018q2_mosaic/gmap/{z}/{x}/{y}.png"
 		name = "GISTDA Planet Map Q2"
 		ml_gistdaq2(self.iface,service_url, name)	
-
-		
