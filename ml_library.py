@@ -109,3 +109,21 @@ def ml_overlay_amp(self, service_url, name):
 	gs_layer = qgis.utils.iface.addRasterLayer(service_uri, name, "wms")
 	if not gs_layer.isValid():
   		print("LayerService failed to load!")
+
+def ml_gistdaq1(self, service_url, name):
+	import requests
+	import qgis.utils	
+	service_uri = "type=xyz&url=https://"+requests.utils.quote(service_url)
+	service_uri += "?api_key%3D5d7613757d3f478390339f52db26925c&zmax=18&zmin=0"
+	gdq1_layer = qgis.utils.iface.addRasterLayer(service_uri, name, "wms")
+	if not gdq1_layer.isValid():
+  		print("LayerService failed to load!")
+
+def ml_gistdaq2(self, service_url, name):
+	import requests
+	import qgis.utils	
+	service_uri = "type=xyz&url=https://"+requests.utils.quote(service_url)
+	service_uri += "?api_key%3D8be4516d85c44bf4826fce62afeddf71&zmax=18&zmin=0"
+	gdq2_layer = qgis.utils.iface.addRasterLayer(service_uri, name, "wms")
+	if not gdq2_layer.isValid():
+  		print("LayerService failed to load!")

@@ -100,9 +100,37 @@ class ml_menu:
 		self.ml_add_submenu(self.tfm_menu)
 		self.tfm_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/ml_tfm.png"))
 
+		#Menu GISTDA 
+		self.gd_menu = QMenu(u'GISTDA WMS')	
+		self.ml_add_submenu(self.gd_menu)
+		self.gd_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/ml_gd.png"))
+
 		#########################		
 		# Icon Map
 		#####################
+
+
+		#########################		
+		# GISTDA
+		#####################
+
+		#GISTDA Thaichote
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_gd.png")
+		self.gdbm_action = QAction(icon, u'GISTDA Thaichote ', self.iface.mainWindow())
+		self.gdbm_action.triggered.connect(self.gdbm_call)		
+		self.gd_menu.addAction(self.gdbm_action)
+
+		#GISTDA Planet Map Q1 
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_gd.png")
+		self.gdpnq1_action = QAction(icon, u'GISTDA Planet Map Q1 ', self.iface.mainWindow())
+		self.gdpnq1_action.triggered.connect(self.gdpnq1_call)		
+		self.gd_menu.addAction(self.gdpnq1_action)
+
+		#GISTDA Planet Map Q2
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_gd.png")
+		self.gdpnq2_action = QAction(icon, u'GISTDA Planet Map Q2', self.iface.mainWindow())
+		self.gdpnq2_action.triggered.connect(self.gdpnq2_call)		
+		self.gd_menu.addAction(self.gdpnq2_action)
 
 
 		#########################		
@@ -842,3 +870,28 @@ class ml_menu:
 		service_url ="b.tile.thunderforest.com/neighbourhood/{z}/{x}/{y}.png"
 		name = "Thunderforest Neighbourhood"
 		ml_tfmmap_b(self.iface,service_url, name)
+
+
+	#########################		
+	# GISTDA
+	#####################
+
+	#GISTDA Thaichote
+	def gdbm_call(self):
+		service_url ="go-tiles1.gistda.or.th/mapproxy/wmts/thaichote/GLOBAL_WEBMERCATOR/{z}/{x}/{y}.png"
+		name = "GISTDA Thaichote"
+		ml_basemap(self.iface,service_url, name)
+
+	#GISTDA Planet Map Q1
+	def gdpnq1_call(self):
+		service_url ="tiles.planet.com/basemaps/v1/planet-tiles/thailand_2018q1_mosaic/gmap/{z}/{x}/{y}.png"
+		name = "GISTDA Planet Map Q1"
+		ml_gistdaq1(self.iface,service_url, name)
+		
+	#GISTDA Planet Map Q2
+	def gdpnq2_call(self):
+		service_url ="tiles.planet.com/basemaps/v1/planet-tiles/thailand_2018q2_mosaic/gmap/{z}/{x}/{y}.png"
+		name = "GISTDA Planet Map Q2"
+		ml_gistdaq2(self.iface,service_url, name)	
+
+		
