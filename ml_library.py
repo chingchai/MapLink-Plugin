@@ -44,6 +44,34 @@ def ml_basemapapi(self, service_url, name):
 	api_layer = qgis.utils.iface.addRasterLayer(service_uri, name, "wms")
 	if not api_layer.isValid():
   		print("LayerService failed to load!")
+
+def ml_bingmap(self, service_url, name):
+	import requests
+	import qgis.utils	
+	service_uri = "type=xyz&zmin=0&zmax=24&url=http://"+requests.utils.quote(service_url)
+	service_uri += "?g=1"
+	bing_layer = qgis.utils.iface.addRasterLayer(service_uri, name, "wms")
+	if not bing_layer.isValid():
+  		print("LayerService failed to load!")
+
+def ml_tfmmap_a(self, service_url, name):
+	import requests
+	import qgis.utils	
+	service_uri = "type=xyz&zmin=0&zmax=24&url=http://"+requests.utils.quote(service_url)
+	service_uri += "?apikey=7c352c8ff1244dd8b732e349e0b0fe8d"
+	tfma_layer = qgis.utils.iface.addRasterLayer(service_uri, name, "wms")
+	if not tfma_layer.isValid():
+  		print("LayerService failed to load!")
+
+def ml_tfmmap_b(self, service_url, name):
+	import requests
+	import qgis.utils	
+	service_uri = "type=xyz&zmin=0&zmax=24&url=http://"+requests.utils.quote(service_url)
+	service_uri += "?apikey=7c352c8ff1244dd8b732e349e0b0fe8d"
+	tfmb_layer = qgis.utils.iface.addRasterLayer(service_uri, name, "wms")
+	if not tfmb_layer.isValid():
+  		print("LayerService failed to load!")
+
 #--------------------------------------------------------
 #    Add Overlay WMS Service
 # --------------------------------------------------------

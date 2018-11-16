@@ -70,19 +70,19 @@ class ml_menu:
 		#Menu Wikimedia 
 		self.wikimap_menu = QMenu(u'Wikimedia')	
 		self.ml_add_submenu(self.wikimap_menu)
-		self.wikimap_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/ldd.png"))
+		self.wikimap_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/ml_wk.png"))
 
 
 		#OpenWeatherMap 
 		self.owm_menu = QMenu(u'OpenWeatherMap')	
 		self.ml_add_submenu(self.owm_menu)
-		self.owm_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/ldd.png"))
+		self.owm_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/ml_owm.jpg"))
 
 
 		#Menu Bing Map
-		#self.bingmap_menu = QMenu(u'Bing Map')	
-		#self.ml_add_submenu(self.bingmap_menu)
-		#self.bingmap_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/ldd.png"))
+		self.bingmap_menu = QMenu(u'Bing Map')	
+		self.ml_add_submenu(self.bingmap_menu)
+		self.bingmap_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/ml_bing.png"))
 
 
 		#Menu Overlay LDD
@@ -95,6 +95,10 @@ class ml_menu:
 		self.ml_add_submenu(self.gs_menu)
 		self.gs_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/icon.png"))
 
+		#Menu ThunderForest Map
+		self.tfm_menu = QMenu(u'ThunderForest Map')	
+		self.ml_add_submenu(self.tfm_menu)
+		self.tfm_menu.setIcon(QIcon(os.path.dirname(__file__) + "/icons/ml_tfm.png"))
 
 		#########################		
 		# Icon Map
@@ -102,50 +106,109 @@ class ml_menu:
 
 
 		#########################		
-		# Wikimedia Map
+		# Thunderforest Map
+		#####################
+
+		#ThunderForest Map OpenCycleMap 
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_tfm.png")
+		self.tfmocc_action = QAction(icon, u'ThunderForest Map OpenCycle', self.iface.mainWindow())
+		self.tfmocc_action.triggered.connect(self.tfmocc_call)		
+		self.tfm_menu.addAction(self.tfmocc_action)
+
+		#ThunderForest Map Transport
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_tfm.png")
+		self.tfmtst_action = QAction(icon, u'ThunderForest Map Transport', self.iface.mainWindow())
+		self.tfmtst_action.triggered.connect(self.tfmtst_call)		
+		self.tfm_menu.addAction(self.tfmtst_action)
+
+		#ThunderForest Map Landscape
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_tfm.png")
+		self.tfmlsc_action = QAction(icon, u'ThunderForest Map Landscape', self.iface.mainWindow())
+		self.tfmlsc_action.triggered.connect(self.tfmlsc_call)		
+		self.tfm_menu.addAction(self.tfmlsc_action)
+
+		#ThunderForest Map Outdoors
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_tfm.png")
+		self.tfmods_action = QAction(icon, u'ThunderForest Map Outdoors', self.iface.mainWindow())
+		self.tfmods_action.triggered.connect(self.tfmods_call)		
+		self.tfm_menu.addAction(self.tfmods_action)
+
+		#ThunderForest Map Transport Dark
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_tfm.png")
+		self.tfmtsd_action = QAction(icon, u'ThunderForest Map Transport Dark', self.iface.mainWindow())
+		self.tfmtsd_action.triggered.connect(self.tfmtsd_call)		
+		self.tfm_menu.addAction(self.tfmtsd_action)
+
+		#ThunderForest Map Spinal 
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_tfm.png")
+		self.tfmspn_action = QAction(icon, u'ThunderForest Map Spinal', self.iface.mainWindow())
+		self.tfmspn_action.triggered.connect(self.tfmspn_call)		
+		self.tfm_menu.addAction(self.tfmspn_action)
+
+		#ThunderForest Map Pioneer
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_tfm.png")
+		self.tfmpio_action = QAction(icon, u'ThunderForest Map Pioneer', self.iface.mainWindow())
+		self.tfmpio_action.triggered.connect(self.tfmpio_call)		
+		self.tfm_menu.addAction(self.tfmpio_action)
+
+		#ThunderForest Map Mobile Atlas
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_tfm.png")
+		self.tfmmat_action = QAction(icon, u'ThunderForest Map Mobile Atlas', self.iface.mainWindow())
+		self.tfmmat_action.triggered.connect(self.tfmmat_call)		
+		self.tfm_menu.addAction(self.tfmmat_action)
+
+		#ThunderForest Map Neighbourhood
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_tfm.png")
+		self.tfmnbh_action = QAction(icon, u'ThunderForest Map Neighbourhood', self.iface.mainWindow())
+		self.tfmnbh_action.triggered.connect(self.tfmnbh_call)		
+		self.tfm_menu.addAction(self.tfmnbh_action)
+
+
+		#########################		
+		# OpenWeatherMap
 		#####################
 
 		#OpenWeatherMap Temperature
-		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_ortho.png")
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_owm.jpg")
 		self.owmtem_action = QAction(icon, u'OpenWeatherMap Temperature', self.iface.mainWindow())
 		self.owmtem_action.triggered.connect(self.owmtem_call)		
 		self.owm_menu.addAction(self.owmtem_action)
 
 		#OpenWeatherMap Clouds
-		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_ortho.png")
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_owm.jpg")
 		self.owmcl_action = QAction(icon, u'OpenWeatherMap Clouds', self.iface.mainWindow())
 		self.owmcl_action.triggered.connect(self.owmcl_call)		
 		self.owm_menu.addAction(self.owmcl_action)
 
 		#OpenWeatherMap Wind Speed
-		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_ortho.png")
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_owm.jpg")
 		self.owmws_action = QAction(icon, u'OpenWeatherMap Wind Speed', self.iface.mainWindow())
 		self.owmws_action.triggered.connect(self.owmws_call)		
 		self.owm_menu.addAction(self.owmws_action)
 
 
 		#########################		
-		# Wikimedia Map
+		# Bing Map
 		#####################
 
 		#Bing VirtualEarth
-		#icon = QIcon(os.path.dirname(__file__) + "/icons/ml_ortho.png")
-		#self.bingve_action = QAction(icon, u'Bing VirtualEarth', self.iface.mainWindow())
-		#self.bingve_action.triggered.connect(self.bingve_call)		
-		#self.bingmap_menu.addAction(self.bingve_action)
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_bing.png")
+		self.bingve_action = QAction(icon, u'Bing VirtualEarth', self.iface.mainWindow())
+		self.bingve_action.triggered.connect(self.bingve_call)		
+		self.bingmap_menu.addAction(self.bingve_action)
 
 		#########################		
 		# Wikimedia Map
 		#####################
 
 		#Wikimedia Map
-		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_ortho.png")
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_wk.png")
 		self.wikimap_action = QAction(icon, u'Wikimedia Map', self.iface.mainWindow())
 		self.wikimap_action.triggered.connect(self.wikimap_call)		
 		self.wikimap_menu.addAction(self.wikimap_action)
 
 		#Wikimedia Hike Bike Map
-		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_ortho.png")
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_wk.png")
 		self.wikihbm_action = QAction(icon, u'Wikimedia Hike Bike Map', self.iface.mainWindow())
 		self.wikihbm_action.triggered.connect(self.wikihbm_call)		
 		self.wikimap_menu.addAction(self.wikihbm_action)
@@ -419,6 +482,11 @@ class ml_menu:
 		self.openstreetmaphot_action.triggered.connect(self.openstreetmaphot_call)		
 		self.osm_menu.addAction(self.openstreetmaphot_action)
 
+		# OpenStreetMap Topo
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_osm.png")
+		self.openstreetmaptp_action = QAction(icon, u'OpenStreetMap Topo', self.iface.mainWindow())
+		self.openstreetmaptp_action.triggered.connect(self.openstreetmaptp_call)		
+		self.osm_menu.addAction(self.openstreetmaptp_action)
 
 	def unload(self):
 		if self.ml_menu != None:
@@ -528,7 +596,7 @@ class ml_menu:
 	#####################
 			
 	def stamenwatercolor_call(self):
-		service_url = "c.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg" 
+		service_url = "a.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg" 
 		name = "Stamen Watercolor"
 		ml_basemap(self.iface,service_url, name)
 	
@@ -629,6 +697,11 @@ class ml_menu:
 		name = "Openstreetmap HOT"
 		ml_basemap(self.iface,service_url, name)
 
+	def openstreetmaptp_call(self):
+		service_url ="c.tile.opentopomap.org/{z}/{x}/{y}.png"
+		name = "Openstreetmap Topo"
+		ml_basemap(self.iface,service_url, name)
+
 	#########################		
 	# LDD Map
 	#########################
@@ -706,10 +779,66 @@ class ml_menu:
 	#####################
 
 	#Bing VirtualEarth
-	#def bingve_call(self):
-		#service_url ="ecn.t3.tiles.virtualearth.net/tiles/a{q}.jpeg?g=1"
-		#name = "Bing VirtualEarth"
-		#ml_basemap(self.iface,service_url, name)
+	def bingve_call(self):
+		service_url ="ecn.t3.tiles.virtualearth.net/tiles/a{q}.jpeg"
+		name = "Bing VirtualEarth"
+		ml_bingmap(self.iface,service_url, name)
 	
-#http://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png%3FAPPID=282ba1192254376a27ec79893cb2b1d5
-#http://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?APPID=282ba1192254376a27ec79893cb2b1d5
+
+	#########################		
+	# Thunderforest Map
+	#####################
+
+	#Thunderforest Map OpenCycle
+	def tfmocc_call(self):
+		service_url ="b.tile.thunderforest.com/cycle/{z}/{x}/{y}.png"
+		name = "Thunderforest Map OpenCycle"
+		ml_tfmmap_b(self.iface,service_url, name)
+
+	#Thunderforest Map Transport
+	def tfmtst_call(self):
+		service_url ="a.tile.thunderforest.com/transport/{z}/{x}/{y}.png"
+		name = "Thunderforest Map Transport"
+		ml_tfmmap_a(self.iface,service_url, name)
+
+	#Thunderforest Map Landscape
+	def tfmlsc_call(self):
+		service_url ="a.tile.thunderforest.com/landscape/{z}/{x}/{y}.png"
+		name = "Thunderforest Map Landscape"
+		ml_tfmmap_a(self.iface,service_url, name)
+
+	#Thunderforest Map Outdoors
+	def tfmods_call(self):
+		service_url ="a.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png"
+		name = "Thunderforest Map Transport"
+		ml_tfmmap_a(self.iface,service_url, name)
+
+	#Thunderforest Map Transport Dark
+	def tfmtsd_call(self):
+		service_url ="b.tile.thunderforest.com/transport-dark/{z}/{x}/{y}.png"
+		name = "Thunderforest Transport Dark"
+		ml_tfmmap_b(self.iface,service_url, name)
+
+	#Thunderforest Map Spinal
+	def tfmspn_call(self):
+		service_url ="b.tile.thunderforest.com/spinal-map/{z}/{x}/{y}.png"
+		name = "Thunderforest Spinal"
+		ml_tfmmap_b(self.iface,service_url, name)
+
+	#Thunderforest Map Pioneer
+	def tfmpio_call(self):
+		service_url ="a.tile.thunderforest.com/pioneer/{z}/{x}/{y}.png"
+		name = "Thunderforest Pioneer"
+		ml_tfmmap_a(self.iface,service_url, name)
+
+	#Thunderforest Map Mobile Atlas
+	def tfmmat_call(self):
+		service_url ="a.tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png"
+		name = "Thunderforest Mobile Atlas"
+		ml_tfmmap_a(self.iface,service_url, name)
+
+	#Thunderforest Map Neighbourhood
+	def tfmnbh_call(self):
+		service_url ="b.tile.thunderforest.com/neighbourhood/{z}/{x}/{y}.png"
+		name = "Thunderforest Neighbourhood"
+		ml_tfmmap_b(self.iface,service_url, name)
