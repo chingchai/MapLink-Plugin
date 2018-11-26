@@ -132,6 +132,71 @@ class ml_menu:
 		self.gdpnq2_action.triggered.connect(self.gdpnq2_call)		
 		self.gd_menu.addAction(self.gdpnq2_action)
 
+		#GISTDA Flood Map 2006
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_gd.png")
+		self.gdfld2006_action = QAction(icon, u'GISTDA Flood 2006', self.iface.mainWindow())
+		self.gdfld2006_action.triggered.connect(self.gdfld2006_call)		
+		self.gd_menu.addAction(self.gdfld2006_action)
+
+		#GISTDA Flood Map 2007
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_gd.png")
+		self.gdfld2007_action = QAction(icon, u'GISTDA Flood 2007', self.iface.mainWindow())
+		self.gdfld2007_action.triggered.connect(self.gdfld2007_call)		
+		self.gd_menu.addAction(self.gdfld2007_action)
+
+		#GISTDA Flood Map 2008
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_gd.png")
+		self.gdfld2008_action = QAction(icon, u'GISTDA Flood 2008', self.iface.mainWindow())
+		self.gdfld2008_action.triggered.connect(self.gdfld2008_call)		
+		self.gd_menu.addAction(self.gdfld2008_action)
+
+		#GISTDA Flood Map 2009
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_gd.png")
+		self.gdfld2009_action = QAction(icon, u'GISTDA Flood 2009', self.iface.mainWindow())
+		self.gdfld2009_action.triggered.connect(self.gdfld2009_call)		
+		self.gd_menu.addAction(self.gdfld2009_action)
+
+		#GISTDA Flood Map 2010
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_gd.png")
+		self.gdfld2010_action = QAction(icon, u'GISTDA Flood 2010', self.iface.mainWindow())
+		self.gdfld2010_action.triggered.connect(self.gdfld2010_call)		
+		self.gd_menu.addAction(self.gdfld2010_action)
+
+		#GISTDA Flood Map 2011
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_gd.png")
+		self.gdfld2011_action = QAction(icon, u'GISTDA Flood 2011', self.iface.mainWindow())
+		self.gdfld2011_action.triggered.connect(self.gdfld2011_call)		
+		self.gd_menu.addAction(self.gdfld2011_action)
+
+		#GISTDA Flood Map 2012
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_gd.png")
+		self.gdfld2012_action = QAction(icon, u'GISTDA Flood 2012', self.iface.mainWindow())
+		self.gdfld2012_action.triggered.connect(self.gdfld2012_call)		
+		self.gd_menu.addAction(self.gdfld2012_action)
+
+		#GISTDA Flood Map 2013
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_gd.png")
+		self.gdfld2013_action = QAction(icon, u'GISTDA Flood 2013', self.iface.mainWindow())
+		self.gdfld2013_action.triggered.connect(self.gdfld2013_call)		
+		self.gd_menu.addAction(self.gdfld2013_action)
+
+		#GISTDA Flood Map 2014
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_gd.png")
+		self.gdfld2014_action = QAction(icon, u'GISTDA Flood 2014', self.iface.mainWindow())
+		self.gdfld2014_action.triggered.connect(self.gdfld2014_call)		
+		self.gd_menu.addAction(self.gdfld2014_action)
+
+		#GISTDA Flood Map 2015
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_gd.png")
+		self.gdfld2015_action = QAction(icon, u'GISTDA Flood 2015', self.iface.mainWindow())
+		self.gdfld2015_action.triggered.connect(self.gdfld2015_call)		
+		self.gd_menu.addAction(self.gdfld2015_action)
+
+		#GISTDA Flood Map 2016
+		icon = QIcon(os.path.dirname(__file__) + "/icons/ml_gd.png")
+		self.gdfld2016_action = QAction(icon, u'GISTDA Flood 2016', self.iface.mainWindow())
+		self.gdfld2016_action.triggered.connect(self.gdfld2016_call)		
+		self.gd_menu.addAction(self.gdfld2016_action)
 
 		#########################		
 		# Thunderforest Map
@@ -893,3 +958,69 @@ class ml_menu:
 		service_url ="tiles.planet.com/basemaps/v1/planet-tiles/thailand_2018q2_mosaic/gmap/{z}/{x}/{y}.png"
 		name = "GISTDA Planet Map Q2"
 		ml_gistdaq2(self.iface,service_url, name)	
+
+	#GISTDA Flood Map 2006
+	def gdfld2006_call(self):
+		service_url ="ecoplant.gistda.or.th/rest/gis/wms/"
+		name = "GISTDA Flood 2006"
+		ml_gistdaflood2006(self.iface,service_url, name)	
+
+	#GISTDA Flood Map 2007
+	def gdfld2007_call(self):
+		service_url ="ecoplant.gistda.or.th/rest/gis/wms/"
+		name = "GISTDA Flood 2007"
+		ml_gistdaflood2007(self.iface,service_url, name)
+
+	#GISTDA Flood Map 2008
+	def gdfld2008_call(self):
+		service_url ="ecoplant.gistda.or.th/rest/gis/wms/"
+		name = "GISTDA Flood 2008"
+		ml_gistdaflood2008(self.iface,service_url, name)
+
+	#GISTDA Flood Map 2009
+	def gdfld2009_call(self):
+		service_url ="ecoplant.gistda.or.th/rest/gis/wms/"
+		name = "GISTDA Flood 2009"
+		ml_gistdaflood2009(self.iface,service_url, name)
+
+	#GISTDA Flood Map 2010
+	def gdfld2010_call(self):
+		service_url ="ecoplant.gistda.or.th/rest/gis/wms/"
+		name = "GISTDA Flood 2010"
+		ml_gistdaflood2010(self.iface,service_url, name)
+
+	#GISTDA Flood Map 2011
+	def gdfld2011_call(self):
+		service_url ="ecoplant.gistda.or.th/rest/gis/wms/"
+		name = "GISTDA Flood 2011"
+		ml_gistdaflood2011(self.iface,service_url, name)
+
+	#GISTDA Flood Map 2012
+	def gdfld2012_call(self):
+		service_url ="ecoplant.gistda.or.th/rest/gis/wms/"
+		name = "GISTDA Flood 2012"
+		ml_gistdaflood2012(self.iface,service_url, name)
+
+	#GISTDA Flood Map 2013
+	def gdfld2013_call(self):
+		service_url ="ecoplant.gistda.or.th/rest/gis/wms/"
+		name = "GISTDA Flood 2013"
+		ml_gistdaflood2013(self.iface,service_url, name)
+
+	#GISTDA Flood Map 2014
+	def gdfld2014_call(self):
+		service_url ="ecoplant.gistda.or.th/rest/gis/wms/"
+		name = "GISTDA Flood 2014"
+		ml_gistdaflood2014(self.iface,service_url, name)
+
+	#GISTDA Flood Map 2015
+	def gdfld2015_call(self):
+		service_url ="ecoplant.gistda.or.th/rest/gis/wms/"
+		name = "GISTDA Flood 2015"
+		ml_gistdaflood2015(self.iface,service_url, name)
+
+	#GISTDA Flood Map 2016
+	def gdfld2016_call(self):
+		service_url ="ecoplant.gistda.or.th/rest/gis/wms/"
+		name = "GISTDA Flood 2016"
+		ml_gistdaflood2016(self.iface,service_url, name)
